@@ -91,16 +91,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<p>Cadastre-se, para ganhar pontos e promoções e efetuar compras!</p>
 		<!-- Formulario Rafinha -->
 		<p>Já é um membro? <a href="index.php">Entre</a></p>
-		<form method="post" action="#">
-			<input style="background-color:transparent" class="user" type="text" placeholder="USER@DOMAIN.COM" required=""><br>
-			<input style="background-color:transparent" type="text" placeholder="NAME" required="">
-			<input style="background-color:transparent" type="text" placeholder="Sobrenome" required="">			 
+		<form method="post" action="data/gravar.php">
+			<input style="background-color:transparent" class="user" type="text" name="email"placeholder="USER@DOMAIN.COM" required=""><br>
+			<input style="background-color:transparent" class="user" type="text" name="nome"placeholder="Nome Completo" required=""><br>
+			<input style="background-color:transparent" class="user" type="text" name="end"placeholder="Endereço" required=""><br>
+			<input style="background-color:transparent" type="text" name="numero"placeholder="Numero" required="">			 
+			<input style="background-color:transparent" type="text" name="comple"placeholder="Complemento" required="">	
+			<input style="background-color:transparent" type="text" name="tel"placeholder="1100000000" required="">	
+			<input style="background-color:transparent" type="text" name="cel"placeholder="11900000000" required="">	
 			<input style="background-color:transparent" name="senha1" type="password" placeholder="Criar uma senha" required="">		 
 			<input style="background-color:transparent" name="senha2" type="password" placeholder="Confirmar Senha" required="">				 
 			 <input type="submit" value="Criar a sua conta">
 			 <?php 
 				if ($_POST) {
 					$senha1 = $_POST['senha1'];
+					$criptografada = md5($senha);
 					$senha2 = $_POST['senha2'];
 				if ($senha1 == "") {
 						$mensagem = "<span class='aviso'><b>AVISO</b>: Senha não foi alterada!</span>";
